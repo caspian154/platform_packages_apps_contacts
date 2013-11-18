@@ -121,6 +121,9 @@
     <!-- Menu item that deletes the currently selected group [CHAR LIMIT=30] -->
     <string name="menu_deleteGroup">Delete</string>
 
+    <!-- Menu item that emails the currently selected group [CHAR LIMIT=30] -->
+    <string name="menu_emailGroup">Email Group</string>
+
     <!-- Menu item (in the action bar) that creates a new contact [CHAR LIMIT=30] -->
     <string name="menu_new_contact_action_bar">Add Contact</string>
 
