@@ -48,6 +48,7 @@ import android.widget.TextView;
 import com.android.contacts.GroupMemberLoader;
 import com.android.contacts.GroupMetaDataLoader;
 import com.android.contacts.R;
+import com.android.contacts.common.CallUtil;
 import com.android.contacts.common.ContactPhotoManager;
 import com.android.contacts.interactions.GroupDeletionDialogFragment;
 import com.android.contacts.common.list.ContactTileAdapter;
@@ -86,6 +87,11 @@ public class GroupDetailFragment extends Fragment implements OnScrollListener {
          * Contact is selected and should launch details page
          */
         public void onContactSelected(Uri contactUri);
+        
+        /**
+         * User decided to email the group.
+         */
+        public void onEmailGroupRequested(Uri groupUri);
     }
 
     private static final String TAG = "GroupDetailFragment";
@@ -444,6 +450,15 @@ public class GroupDetailFragment extends Fragment implements OnScrollListener {
                 GroupDeletionDialogFragment.show(getFragmentManager(), mGroupId, mGroupName,
                         mCloseActivityAfterDelete);
                 return true;
+            }
+            
+            case R.id.menu_email_group: {
+                if (mListener != null) 
+                {
+                    mListener.onEmailGroupRequested(mGroupUri);
+                }
+        
+                break;
             }
         }
         return false;

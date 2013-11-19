@@ -33,6 +33,7 @@ import com.android.contacts.ContactsActivity;
 import com.android.contacts.R;
 import com.android.contacts.group.GroupDetailDisplayUtils;
 import com.android.contacts.group.GroupDetailFragment;
+import com.android.contacts.common.CallUtil;
 import com.android.contacts.common.model.AccountTypeManager;
 import com.android.contacts.common.model.account.AccountType;
 
@@ -108,7 +109,13 @@ public class GroupDetailActivity extends ContactsActivity {
             Intent intent = new Intent(Intent.ACTION_VIEW, contactUri);
             startActivity(intent);
         }
-
+        
+        @Override
+        public void onEmailGroupRequested(Uri groupUri)
+        {
+            Intent intent = new Intent(Intent.ACTION_SENDTO,
+                    Uri.fromParts(CallUtil.SCHEME_MAILTO, "srtelle@gmail.com", null));
+        }
     };
 
     @Override

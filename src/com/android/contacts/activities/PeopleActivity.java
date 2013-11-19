@@ -59,6 +59,7 @@ import com.android.contacts.detail.ContactDetailLayoutController;
 import com.android.contacts.detail.ContactDetailUpdatesFragment;
 import com.android.contacts.detail.ContactLoaderFragment;
 import com.android.contacts.detail.ContactLoaderFragment.ContactLoaderFragmentListener;
+import com.android.contacts.common.CallUtil;
 import com.android.contacts.common.dialog.ClearFrequentsDialog;
 import com.android.contacts.group.GroupBrowseListFragment;
 import com.android.contacts.group.GroupBrowseListFragment.OnGroupBrowserActionListener;
@@ -1353,6 +1354,12 @@ public class PeopleActivity extends ContactsActivity
         public void onContactSelected(Uri contactUri) {
             // Nothing needs to be done here because either quickcontact will be displayed
             // or activity will take care of selection
+        }
+
+        @Override
+        public void onEmailGroupRequested(Uri groupUri)
+        {
+            // Nothing to be done here...
         }
     }
 
